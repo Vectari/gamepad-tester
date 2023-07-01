@@ -1,27 +1,21 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useAtom } from "jotai/react";
+import {
+  atomL3Pressed,
+  atomLeftX,
+  atomLeftY,
+  atomR3Pressed,
+  atomRightX,
+  atomRightY,
+} from "@/GamepadAPI/GamepadAPI";
 
 export function AxesSVG() {
-  const [leftX, setLeftX] = useState(0);
-  const [leftY, setLeftY] = useState(0);
-  const [rightX, setRightX] = useState(0);
-  const [rightY, setRightY] = useState(0);
-  const [l3Pressed, setL3Pressed] = useState(false);
-  const [r3Pressed, setR3Pressed] = useState(false);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const controller = navigator.getGamepads()[0];
-      if (controller) {
-        setLeftX(controller.axes[0]);
-        setLeftY(controller.axes[1]);
-        setRightX(controller.axes[2]);
-        setRightY(controller.axes[3]);
-        setL3Pressed(controller.buttons[10].pressed);
-        setR3Pressed(controller.buttons[11].pressed);
-      }
-    }, 1);
-  }, []);
+  const [leftX] = useAtom(atomLeftX);
+  const [leftY] = useAtom(atomLeftY);
+  const [rightX] = useAtom(atomRightX);
+  const [rightY] = useAtom(atomRightY);
+  const [l3Pressed] = useAtom(atomL3Pressed);
+  const [r3Pressed] = useAtom(atomR3Pressed);
 
   return (
     <>

@@ -1,6 +1,7 @@
 "use client";
 // navigator.getGamepads()
 import { useEffect, useState } from "react";
+import { atom, useAtom } from "jotai";
 
 // function vibration() {
 //   const gamepad = navigator.getGamepads()[0];
@@ -12,13 +13,20 @@ import { useEffect, useState } from "react";
 //   });
 // }
 
+export const atomLeftX = atom(0);
+export const atomLeftY = atom(0);
+export const atomRightX = atom(0);
+export const atomRightY = atom(0);
+export const atomL3Pressed = atom(false);
+export const atomR3Pressed = atom(false);
+
 export function Gamepad() {
-  const [leftX, setLeftX] = useState(0);
-  const [leftY, setLeftY] = useState(0);
-  const [rightX, setRightX] = useState(0);
-  const [rightY, setRightY] = useState(0);
-  const [l3Pressed, setL3Pressed] = useState(false);
-  const [r3Pressed, setR3Pressed] = useState(false);
+  const [leftX, setLeftX] = useAtom(atomLeftX);
+  const [leftY, setLeftY] = useAtom(atomLeftY);
+  const [rightX, setRightX] = useAtom(atomRightX);
+  const [rightY, setRightY] = useAtom(atomRightY);
+  const [l3Pressed, setL3Pressed] = useAtom(atomL3Pressed);
+  const [r3Pressed, setR3Pressed] = useAtom(atomR3Pressed);
   const [lt, setLT] = useState(0);
   const [rt, setRT] = useState(0);
   const [lbPressed, setLBPressed] = useState(false);
