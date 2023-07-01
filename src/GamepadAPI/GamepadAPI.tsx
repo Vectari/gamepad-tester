@@ -72,7 +72,7 @@ export function Gamepad() {
         setGamepadName(controller.id);
       }
     }, 1);
-  }, []);
+  });
 
   return (
     <>
