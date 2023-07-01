@@ -77,40 +77,48 @@ export function XboxSVG() {
               {" "}
               <rect
                 // LB
-                x="111.5"
-                y="61.5"
-                width="51"
-                height="23"
+                x="122"
+                y="60"
+                width="60"
+                height="27"
                 rx="6.5"
                 fill={lbPressed ? "green" : "white"}
-                stroke="#b93434"
+                stroke="#000000"
                 stroke-width="3"
               ></rect>
               <rect
                 // RB
-                x="289.5"
-                y="61.5"
-                width="51"
-                height="23"
+                x="400"
+                y="60"
+                width="60"
+                height="27"
                 rx="6.5"
                 fill={rbPressed ? "green" : "white"}
-                stroke="#b82b2b"
+                stroke="#000000"
                 stroke-width="3"
               ></rect>
-              <path
+              <rect
                 // LT
-                d="M152.5 37C152.5 41.1421 149.142 44.5 145 44.5H132C127.858 44.5 124.5 41.1421 124.5 37V16.5C124.5 8.76801 130.768 2.5 138.5 2.5C146.232 2.5 152.5 8.76801 152.5 16.5V37Z"
-                fill={lt ? `rgba(255,255,255,${lt})` : "rgb(0,0,0)"}
-                stroke="#b93434"
+                x="150"
+                y="1"
+                width="27"
+                height="55"
+                rx="8"
+                fill={lt ? `rgba(0,255,76,${lt})` : "rgb(255, 255, 255)"}
+                stroke="#000000"
                 stroke-width="3"
-              ></path>
-              <path
-                // RT
-                d="M317.5 37C317.5 41.1421 314.142 44.5 310 44.5H297C292.858 44.5 289.5 41.1421 289.5 37V16.5C289.5 8.76801 295.768 2.5 303.5 2.5C311.232 2.5 317.5 8.76801 317.5 16.5V37Z"
-                fill={rt ? `rgba(255,255,255,${rt})` : "rgb(0,0,0)"}
-                stroke="#b93434"
+              ></rect>
+              <rect
+                // LT
+                x="406"
+                y="1"
+                width="27"
+                height="55"
+                rx="8"
+                fill={rt ? `rgba(0,255,76,${rt})` : "rgb(255, 255, 255)"}
+                stroke="#000000"
                 stroke-width="3"
-              ></path>
+              ></rect>
               <path d="M305.053,130c-3.182,1.512-8.127,3.941-8.616,6.634c0,0,13.488,13.14,12.895,25.251c2.754-3.874,4.412-8.58,4.412-13.684 C313.743,140.851,310.316,134.358,305.053,130z"></path>{" "}
               <path
                 // L AXES
@@ -175,6 +183,38 @@ export function XboxSVG() {
                 // D-PAD
                 d="M224.771,293.343v-22.454h-18.115v22.454c0,1.689-1.371,3.061-3.06,3.061h-22.448v18.114h22.448 c1.689,0,3.06,1.371,3.06,3.061v22.454h18.115v-22.454c0-1.689,1.371-3.061,3.06-3.061h22.448v-18.114h-22.448 C226.142,296.403,224.771,295.032,224.771,293.343z"
               ></path>{" "}
+              <rect
+                // RIGHT D-PAD
+                x="225"
+                y="296.3"
+                width="25.2"
+                height="18.4"
+                fill={rightPressed ? "green" : "white"}
+              ></rect>
+              <rect
+                // LEFT D-PAD
+                x="181.2"
+                y="296.3"
+                width="25.2"
+                height="18.4"
+                fill={leftPressed ? "green" : "white"}
+              ></rect>
+              <rect
+                // UP D-PAD
+                x="206.5"
+                y="270.9"
+                width="18.4"
+                height="25.2"
+                fill={upPressed ? "green" : "white"}
+              ></rect>
+              <rect
+                // DOWN D-PAD
+                x="206.5"
+                y="314.6"
+                width="18.4"
+                height="25.2"
+                fill={downPressed ? "green" : "white"}
+              ></rect>
             </g>{" "}
           </g>{" "}
         </g>
