@@ -19,30 +19,46 @@ export const atomRightX = atom(0);
 export const atomRightY = atom(0);
 export const atomL3Pressed = atom(false);
 export const atomR3Pressed = atom(false);
+export const atomLt = atom(0);
+export const atomRt = atom(0);
+export const atomLbPressed = atom(false);
+export const atomRbPressed = atom(false);
+export const atomAPressed = atom(false);
+export const atomBPressed = atom(false);
+export const atomXPressed = atom(false);
+export const atomYPressed = atom(false);
+export const atomUpPressed = atom(false);
+export const atomDownPressed = atom(false);
+export const atomLeftPressed = atom(false);
+export const atomRightPressed = atom(false);
+export const atomSharePressed = atom(false);
+export const atomOptionsPressed = atom(false);
+export const atomConnectionStatus = atom(false);
+export const atomGamepadName = atom("");
 
-export function Gamepad() {
+export function GamepadAPI() {
   const [leftX, setLeftX] = useAtom(atomLeftX);
   const [leftY, setLeftY] = useAtom(atomLeftY);
   const [rightX, setRightX] = useAtom(atomRightX);
   const [rightY, setRightY] = useAtom(atomRightY);
   const [l3Pressed, setL3Pressed] = useAtom(atomL3Pressed);
   const [r3Pressed, setR3Pressed] = useAtom(atomR3Pressed);
-  const [lt, setLT] = useState(0);
-  const [rt, setRT] = useState(0);
-  const [lbPressed, setLBPressed] = useState(false);
-  const [rbPressed, setRBPressed] = useState(false);
-  const [aPressed, setAPressed] = useState(false);
-  const [bPressed, setBPressed] = useState(false);
-  const [xPressed, setXPressed] = useState(false);
-  const [yPressed, setYPressed] = useState(false);
-  const [upPressed, setUPPressed] = useState(false);
-  const [downPressed, setDOWNPressed] = useState(false);
-  const [leftPressed, setLEFTPressed] = useState(false);
-  const [rightPressed, setRIGHTPressed] = useState(false);
-  const [sharePressed, setSHAREPressed] = useState(false);
-  const [optionsPressed, setOPTIONSPressed] = useState(false);
-  const [connectionStatus, setConnectionStatus] = useState(false);
-  const [gamepadName, setGamepadName] = useState("");
+  const [lt, setLT] = useAtom(atomLt);
+  const [rt, setRT] = useAtom(atomRt);
+  const [lbPressed, setLBPressed] = useAtom(atomLbPressed);
+  const [rbPressed, setRBPressed] = useAtom(atomRbPressed);
+  const [aPressed, setAPressed] = useAtom(atomAPressed);
+  const [bPressed, setBPressed] = useAtom(atomBPressed);
+  const [xPressed, setXPressed] = useAtom(atomXPressed);
+  const [yPressed, setYPressed] = useAtom(atomYPressed);
+  const [upPressed, setUPPressed] = useAtom(atomUpPressed);
+  const [downPressed, setDOWNPressed] = useAtom(atomDownPressed);
+  const [leftPressed, setLEFTPressed] = useAtom(atomLeftPressed);
+  const [rightPressed, setRIGHTPressed] = useAtom(atomRightPressed);
+  const [sharePressed, setSHAREPressed] = useAtom(atomSharePressed);
+  const [optionsPressed, setOPTIONSPressed] = useAtom(atomOptionsPressed);
+  const [connectionStatus, setConnectionStatus] = useAtom(atomConnectionStatus);
+  const [gamepadName, setGamepadName] = useAtom(atomGamepadName);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -73,84 +89,5 @@ export function Gamepad() {
       }
     }, 1);
   });
-
-  return (
-    <>
-      <div>
-        STATUS:{" "}
-        {connectionStatus
-          ? `OK - ${gamepadName}`
-          : "Gamepad not connected. Press any button..."}
-      </div>
-      {/* <button onClick={vibration()}>VIBRATION</button> */}
-      <div>LeftX {leftX}</div>
-      <div>LeftY {leftY}</div>
-      <div>RightX {rightX}</div>
-      <div>RightY {rightY}</div>
-      <div>L3{l3Pressed && " OK"}</div>
-      <div>R3{r3Pressed && " OK"}</div>
-      <div>LT {lt}</div>
-      <div>RT {rt}</div>
-      <div>LB{lbPressed && " OK"}</div>
-      <div>RB{rbPressed && " OK"}</div>
-      <div>
-        A{aPressed && " OK"}
-        <svg width="40" height="40">
-          <circle
-            cx="20"
-            cy="20"
-            r="15"
-            stroke="pink"
-            stroke-width="4"
-            fill={aPressed ? "yellow" : "none"}
-          />
-        </svg>
-      </div>
-      <div>
-        B{bPressed && " OK"}
-        <svg width="40" height="40">
-          <circle
-            cx="20"
-            cy="20"
-            r="15"
-            stroke="pink"
-            stroke-width="4"
-            fill={bPressed ? "yellow" : "none"}
-          />
-        </svg>
-      </div>
-      <div>
-        X{xPressed && " OK"}
-        <svg width="40" height="40">
-          <circle
-            cx="20"
-            cy="20"
-            r="15"
-            stroke="pink"
-            stroke-width="4"
-            fill={xPressed ? "yellow" : "none"}
-          />
-        </svg>
-      </div>
-      <div>
-        Y{yPressed && " OK"}
-        <svg width="40" height="40">
-          <circle
-            cx="20"
-            cy="20"
-            r="15"
-            stroke="pink"
-            stroke-width="4"
-            fill={yPressed ? "yellow" : "none"}
-          />
-        </svg>
-      </div>
-      <div>UP{upPressed && " OK"}</div>
-      <div>DOWN{downPressed && " OK"}</div>
-      <div>LEFT{leftPressed && " OK"}</div>
-      <div>RIGHT{rightPressed && " OK"}</div>
-      <div>Share{sharePressed && " OK"}</div>
-      <div>Options{optionsPressed && " OK"}</div>
-    </>
-  );
+  return <></>;
 }
