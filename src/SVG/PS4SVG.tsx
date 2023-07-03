@@ -62,7 +62,6 @@ export function PS4SVG() {
         // xml:space="preserve"
         height="370"
         width="370"
-        stroke="#ffffff"
       >
         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
         <g
