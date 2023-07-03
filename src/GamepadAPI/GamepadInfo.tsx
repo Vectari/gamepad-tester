@@ -12,6 +12,7 @@ import {
   atomLeftPressed,
   atomLeftX,
   atomLeftY,
+  atomLogoPressed,
   atomLt,
   atomOptionsPressed,
   atomR3Pressed,
@@ -21,6 +22,7 @@ import {
   atomRightY,
   atomRt,
   atomSharePressed,
+  // atomTouchbarPressed,
   atomUpPressed,
   atomXPressed,
   atomYPressed,
@@ -47,6 +49,8 @@ export function GamepadInfo() {
   const [rightPressed] = useAtom(atomRightPressed);
   const [sharePressed] = useAtom(atomSharePressed);
   const [optionsPressed] = useAtom(atomOptionsPressed);
+  const [logoPressed] = useAtom(atomLogoPressed);
+  // const [touchbarPressed] = useAtom(atomTouchbarPressed);
   const [connectionStatus] = useAtom(atomConnectionStatus);
   const [gamepadName] = useAtom(atomGamepadName);
 
@@ -79,6 +83,8 @@ export function GamepadInfo() {
       <div>RIGHT{rightPressed && " OK"}</div>
       <div>Share{sharePressed && " OK"}</div>
       <div>Options{optionsPressed && " OK"}</div>
+      <div>Logo{logoPressed && "OK"}</div>
+      {/* <div>TOUCHBAR{touchbarPressed && "OK"}</div> */}
     </>
   );
 }
