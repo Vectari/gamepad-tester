@@ -54,6 +54,8 @@ export function XboxSVG() {
     <>
       <svg
         fill="#ffffff"
+        stroke="black"
+        stroke-width="2"
         version="1.1"
         id="Capa_1"
         xmlns="http://www.w3.org/2000/svg"
@@ -82,9 +84,9 @@ export function XboxSVG() {
                 width="60"
                 height="27"
                 rx="6.5"
-                fill={lbPressed ? "green" : "white"}
+                fill={lbPressed ? "black" : "white"}
                 stroke="#000000"
-                stroke-width="3"
+                stroke-width="2"
               ></rect>
               <rect
                 // RB
@@ -93,9 +95,9 @@ export function XboxSVG() {
                 width="60"
                 height="27"
                 rx="6.5"
-                fill={rbPressed ? "green" : "white"}
+                fill={rbPressed ? "black" : "white"}
                 stroke="#000000"
-                stroke-width="3"
+                stroke-width="2"
               ></rect>
               <rect
                 // LT
@@ -104,9 +106,9 @@ export function XboxSVG() {
                 width="27"
                 height="55"
                 rx="8"
-                fill={lt ? `rgba(0,255,76,${lt})` : "rgb(255, 255, 255)"}
+                fill={lt ? `rgba(0,0,0,${lt})` : "rgb(255, 255, 255)"}
                 stroke="#000000"
-                stroke-width="3"
+                stroke-width="2"
               ></rect>
               <rect
                 // LT
@@ -115,31 +117,31 @@ export function XboxSVG() {
                 width="27"
                 height="55"
                 rx="8"
-                fill={rt ? `rgba(0,255,76,${rt})` : "rgb(255, 255, 255)"}
+                fill={lt ? `rgba(0,0,0,${lt})` : "rgb(255, 255, 255)"}
                 stroke="#000000"
-                stroke-width="3"
+                stroke-width="2"
               ></rect>
               <path d="M305.053,130c-3.182,1.512-8.127,3.941-8.616,6.634c0,0,13.488,13.14,12.895,25.251c2.754-3.874,4.412-8.58,4.412-13.684 C313.743,140.851,310.316,134.358,305.053,130z"></path>{" "}
               <circle
-                // L AXES
-                cx={142 + leftX * 6}
-                cy={210.8 + leftY * 6}
+                // L AXES AND L3
+                cx={142 + leftX * 8}
+                cy={210.8 + leftY * 8}
                 r="40"
-                fill={l3Pressed ? "green" : "white"}
+                stroke-width={l3Pressed ? "5" : "2"}
               ></circle>
               <circle
                 // X BUTTON
                 cx="399.932"
                 cy="212.094"
                 r="18.77"
-                fill={xPressed ? "green" : "white"}
+                fill={xPressed ? "black" : "white"}
               ></circle>{" "}
               <circle
                 // SHARE
                 cx="249.019"
                 cy="212.094"
                 r="9.804"
-                fill={sharePressed ? "green" : "white"}
+                fill={sharePressed ? "black" : "white"}
               ></circle>{" "}
               <path d="M289.796,142.626c-12.007,9.272-15.973,17.062-17.283,21.445c4.345,4.786,10.551,7.852,17.509,7.852 c6.769,0,12.846-2.882,17.173-7.448C306.014,160.184,302.183,152.192,289.796,142.626z"></path>{" "}
               <path
@@ -152,7 +154,7 @@ export function XboxSVG() {
                 cx="438.047"
                 cy="252.192"
                 r="18.77"
-                fill={aPressed ? "green" : "white"}
+                fill={aPressed ? "black" : "white"}
               ></circle>{" "}
               <path d="M274.827,130.141c-5.171,4.352-8.525,10.79-8.525,18.066c0,4.829,1.469,9.314,3.954,13.066 c-0.11-11.934,12.907-24.627,12.907-24.627C282.685,134.034,278.009,131.659,274.827,130.141z"></path>{" "}
               <circle
@@ -160,28 +162,28 @@ export function XboxSVG() {
                 cx="479.1"
                 cy="212.094"
                 r="18.77"
-                fill={bPressed ? "green" : "white"}
+                fill={bPressed ? "black" : "white"}
               ></circle>{" "}
               <circle
                 // OPTION
                 cx="332.146"
                 cy="212.094"
                 r="9.804"
-                fill={optionsPressed ? "green" : "white"}
+                fill={optionsPressed ? "black" : "white"}
               ></circle>{" "}
               <circle
                 // Y BUTTON
                 cx="438.047"
                 cy="173.997"
                 r="18.77"
-                fill={yPressed ? "green" : "white"}
+                fill={yPressed ? "black" : "white"}
               ></circle>{" "}
               <circle
-                // R AXES
-                cx={365.2 + rightX * 6}
-                cy={300.8 + rightY * 6}
+                // R AXES AND R3
+                cx={365.2 + rightX * 8}
+                cy={300.8 + rightY * 8}
                 r="40"
-                fill={r3Pressed ? "green" : "white"}
+                stroke-width={r3Pressed ? "5" : "2"}
               ></circle>
               <path
                 // D-PAD
@@ -193,7 +195,7 @@ export function XboxSVG() {
                 y="296.3"
                 width="25.2"
                 height="18.4"
-                fill={rightPressed ? "green" : "white"}
+                fill={rightPressed ? "black" : "white"}
               ></rect>
               <rect
                 // LEFT D-PAD
@@ -201,7 +203,7 @@ export function XboxSVG() {
                 y="296.3"
                 width="25.2"
                 height="18.4"
-                fill={leftPressed ? "green" : "white"}
+                fill={leftPressed ? "black" : "white"}
               ></rect>
               <rect
                 // UP D-PAD
@@ -209,7 +211,7 @@ export function XboxSVG() {
                 y="270.9"
                 width="18.4"
                 height="25.2"
-                fill={upPressed ? "green" : "white"}
+                fill={upPressed ? "black" : "white"}
               ></rect>
               <rect
                 // DOWN D-PAD
@@ -217,7 +219,7 @@ export function XboxSVG() {
                 y="314.6"
                 width="18.4"
                 height="25.2"
-                fill={downPressed ? "green" : "white"}
+                fill={downPressed ? "black" : "white"}
               ></rect>
             </g>{" "}
           </g>{" "}
