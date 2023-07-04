@@ -8,53 +8,59 @@ import { GamepadAPI, atomGamepadName } from "@/GamepadAPI/GamepadAPI";
 import { useAtom } from "jotai/react";
 
 export default function Home() {
-  const [gamepadName] = useAtom(atomGamepadName);
+  // const [gamepadName] = useAtom(atomGamepadName);
 
-  if (
-    `${gamepadName}` === `${"Xbox 360 Controller (XInput STANDARD GAMEPAD)"}`
-  ) {
-    return (
-      <>
-        <div className="p-2">
+  // if (
+  //   `${gamepadName}` === `${"Xbox 360 Controller (XInput STANDARD GAMEPAD)"}`
+  // ) {
+  //   return (
+  //     <>
+  //       <div className="p-2">
+  //         <XboxSVG />
+  //       </div>
+  //       <AxesSVG />
+  //       <GamepadInfo />
+  //       <GamepadAPI />
+  //     </>
+  //   );
+  // } else if (`${gamepadName}` === "") {
+  //   return (
+  //     <>
+  //       <AxesSVG />
+  //       <GamepadInfo />
+  //       <GamepadAPI />
+  //     </>
+  //   );
+  // } else {
+  //   return (
+  //     <>
+  //       <div className="-mt-20 p-2">
+  //         <PS4SVG />
+  //       </div>
+  //       <AxesSVG />
+  //       <GamepadInfo />
+  //       <GamepadAPI />
+  //     </>
+  //   );
+  // }
+
+  return (
+    <div className="grid grid-cols-2">
+      <div className="m-2">
+        <GamepadInfo />
+        <AxesSVG />
+      </div>
+      <div className="-ml-44 mt-2">
+        <div>
           <XboxSVG />
         </div>
-        <AxesSVG />
-        <GamepadInfo />
-        <GamepadAPI />
-      </>
-    );
-  } else if (`${gamepadName}` === "") {
-    return (
-      <>
-        <AxesSVG />
-        <GamepadInfo />
-        <GamepadAPI />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <div className="-mt-20 p-2">
+        <div>
           <PS4SVG />
         </div>
-        <AxesSVG />
-        <GamepadInfo />
-        <GamepadAPI />
-      </>
-    );
-  }
+      </div>
+      
 
-  // return (
-  //   <>
-  //     <div className="p-2">
-  //       <XboxSVG />
-  //     </div>
-  //     <div className="-mt-20 p-2">
-  //       <PS4SVG />
-  //     </div>
-  //     <AxesSVG />
-  //     <GamepadInfo />
-  //     <GamepadAPI />
-  //   </>
-  // );
+      <GamepadAPI />
+    </div>
+  );
 }
