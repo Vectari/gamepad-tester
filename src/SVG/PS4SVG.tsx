@@ -54,6 +54,8 @@ export function PS4SVG() {
     <>
       <svg
         fill="#ffffff"
+        stroke="black"
+        stroke-width="2"
         version="1.1"
         id="Capa_1"
         xmlns="http://www.w3.org/2000/svg"
@@ -82,9 +84,9 @@ export function PS4SVG() {
                 width="60"
                 height="27"
                 rx="6.5"
-                fill={lbPressed ? "green" : "white"}
+                fill={lbPressed ? "black" : "white"}
                 stroke="#000000"
-                stroke-width="3"
+                stroke-width="2"
               ></rect>
               <rect
                 // RB
@@ -93,9 +95,9 @@ export function PS4SVG() {
                 width="60"
                 height="27"
                 rx="6.5"
-                fill={rbPressed ? "green" : "white"}
+                fill={rbPressed ? "black" : "white"}
                 stroke="#000000"
-                stroke-width="3"
+                stroke-width="2"
               ></rect>
               <rect
                 // LT
@@ -104,9 +106,9 @@ export function PS4SVG() {
                 width="27"
                 height="55"
                 rx="8"
-                fill={lt ? `rgba(0,255,76,${lt})` : "rgb(255, 255, 255)"}
+                fill={lt ? `rgba(0,0,0,${lt})` : "rgb(255, 255, 255)"}
                 stroke="#000000"
-                stroke-width="3"
+                stroke-width="2"
               ></rect>
               <rect
                 // LT
@@ -115,21 +117,21 @@ export function PS4SVG() {
                 width="27"
                 height="55"
                 rx="8"
-                fill={rt ? `rgba(0,255,76,${rt})` : "rgb(255, 255, 255)"}
+                fill={rt ? `rgba(0,0,0,${rt})` : "rgb(255, 255, 255)"}
                 stroke="#000000"
-                stroke-width="3"
+                stroke-width="2"
               ></rect>
               <path
                 // OPTION
                 d="M405.318,229.731c2.809,0,5.098-2.289,5.098-5.098v-13.703c0-2.809-2.289-5.098-5.098-5.098s-5.098,2.289-5.098,5.098 v13.703C400.221,227.443,402.51,229.731,405.318,229.731z"
-                fill={optionsPressed ? "green" : "white"}
+                fill={optionsPressed ? "black" : "white"}
               ></path>{" "}
               <circle
                 // Y BUTTON
                 cx="466.5"
                 cy="231.598"
                 r="17.081"
-                fill={yPressed ? "green" : "white"}
+                fill={yPressed ? "black" : "white"}
               ></circle>{" "}
               <path
                 // PS BUTTON
@@ -140,21 +142,21 @@ export function PS4SVG() {
                 cx="506.592"
                 cy="271.69"
                 r="17.081"
-                fill={bPressed ? "green" : "white"}
+                fill={bPressed ? "black" : "white"}
               ></circle>{" "}
               <circle
-                // L AXES
-                cx={190.7 + leftX * 5}
-                cy={354 + leftY * 5}
+                // L AXES AND L3
+                cx={190.7 + leftX * 7}
+                cy={354 + leftY * 7}
                 r="25"
-                fill={l3Pressed ? "green" : "white"}
+                stroke-width={l3Pressed ? "5" : "2"}
               ></circle>
               <circle
-                // R AXES
-                cx={378.2 + rightX * 5}
-                cy={354 + rightY * 5}
+                // R AXES AND R3
+                cx={378.2 + rightX * 7}
+                cy={354 + rightY * 7}
                 r="25"
-                fill={r3Pressed ? "green" : "white"}
+                stroke-width={r3Pressed ? "5" : "2"}
               ></circle>
               <path
                 // BODY
@@ -165,39 +167,39 @@ export function PS4SVG() {
                 cx="426.408"
                 cy="271.69"
                 r="17.081"
-                fill={xPressed ? "green" : "white"}
+                fill={xPressed ? "black" : "white"}
               ></circle>{" "}
               <circle
                 // A BUTTON
                 cx="466.5"
                 cy="311.776"
                 r="17.081"
-                fill={aPressed ? "green" : "white"}
+                fill={aPressed ? "black" : "white"}
               ></circle>{" "}
               <path
                 // SHARE
                 d="M169.038,229.731c2.809,0,5.098-2.289,5.098-5.098v-13.703c0-2.809-2.289-5.098-5.098-5.098s-5.098,2.289-5.098,5.098 v13.703C163.939,227.443,166.229,229.731,169.038,229.731z"
-                fill={sharePressed ? "green" : "white"}
+                fill={sharePressed ? "black" : "white"}
               ></path>{" "}
               <path
                 // DOWN BUTTON
                 d="M106.687,284.444c-4.572,3.36-9.29,7.313-9.97,8.678c-1.23,2.454-2.943,15.723-2.625,20.276 c0.171,2.436,4.407,3.678,12.571,3.684l0.043,3.061v-3.061c8.17-0.006,12.393-1.242,12.57-3.684 c0.331-4.548-1.389-17.81-2.62-20.276C116.032,291.88,111.656,288.098,106.687,284.444z"
-                fill={downPressed ? "green" : "white"}
+                fill={downPressed ? "black" : "white"}
               ></path>{" "}
               <path
                 // LEFT BUTTON
                 d="M87.256,263.728c-2.179-1.095-13.421-2.656-19.088-2.656c-0.446,0-0.851,0.012-1.181,0.037 c-2.442,0.171-3.684,4.4-3.69,12.57c0.006,8.207,1.242,12.436,3.69,12.613c0.331,0.024,0.716,0.037,1.157,0.037 c5.673,0,16.928-1.566,19.113-2.662c1.365-0.679,5.318-5.397,8.678-9.969C92.28,268.722,88.499,264.346,87.256,263.728z"
-                fill={leftPressed ? "green" : "white"}
+                fill={leftPressed ? "black" : "white"}
               ></path>{" "}
               <path
                 // UP BUTTON
                 d="M106.687,262.945c4.969-3.647,9.345-7.43,9.969-8.672c1.23-2.46,2.944-15.729,2.62-20.276 c-0.171-2.442-4.4-3.684-12.57-3.69c-8.207,0.006-12.436,1.243-12.614,3.69c-0.324,4.547,1.396,17.821,2.625,20.276 C97.391,255.625,102.115,259.585,106.687,262.945z"
-                fill={upPressed ? "green" : "white"}
+                fill={upPressed ? "black" : "white"}
               ></path>{" "}
               <path
                 // RIGHT BUTTON
                 d="M146.394,261.109c-0.343-0.024-0.741-0.037-1.188-0.037c-5.673,0-16.916,1.561-19.094,2.656 c-1.242,0.625-5.024,4.994-8.672,9.97c3.36,4.572,7.313,9.296,8.672,9.969c2.356,1.175,15.533,2.962,20.282,2.625 c2.436-0.171,3.678-4.406,3.684-12.57C150.072,265.509,148.835,261.28,146.394,261.109z"
-                fill={rightPressed ? "green" : "white"}
+                fill={rightPressed ? "black" : "white"}
               ></path>{" "}
               <path
                 // TOUCH PANEL
