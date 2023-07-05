@@ -45,12 +45,12 @@ export default function Home() {
   // }
 
   return (
-    <div className="grid grid-cols-2">
+    <div className="md:grid grid-cols-2 ">
       <div className="m-2">
         <GamepadInfo />
         <AxesSVG />
       </div>
-      <div className="-ml-44 mt-2">
+      <div >
         <div>
           <XboxSVG />
         </div>
@@ -58,7 +58,6 @@ export default function Home() {
           <PS4SVG />
         </div>
       </div>
-      
 
       <GamepadAPI />
     </div>
