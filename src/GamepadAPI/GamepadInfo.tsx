@@ -59,19 +59,19 @@ export function GamepadInfo() {
       <div>
         STATUS:{" "}
         {connectionStatus
-          ? `OK - ${gamepadName}`
+          ? `OK - ${gamepadName.substring(0,19)}`
           : "Gamepad not connected. Press any button..."}
       </div>
       {/* <button onClick={vibration()}>VIBRATION</button> */}
       <div className="grid grid-cols-2 p-2">
-        <div>LeftX {leftX}</div>
-        <div>LeftY {leftY}</div>
+        <div>LeftX {leftX.toString().substring(0,6)}</div>
+        <div>LeftY {leftY.toString().substring(0,6)}</div>
       </div>
       <div className="grid grid-cols-2 p-2">
-        <div>RightX {rightX}</div>
-        <div>RightY {rightY}</div>
+        <div>RightX {rightX.toString().substring(0,6)}</div>
+        <div>RightY {rightY.toString().substring(0,6)}</div>
       </div>
-      <div className="grid grid-cols-4 p-2">
+      <div className="grid grid-cols-2 p-2">
         <div>A{aPressed && " OK"}</div>
         <div>B{bPressed && " OK"}</div>
         <div>X{xPressed && " OK"}</div>
