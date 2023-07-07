@@ -20,8 +20,6 @@ export default function GamepadTester() {
       <div className="mt-5">
         <div className="p-2 rounded-lg bg-gamepad-section-content shadow-lg shadow-shadow-500/50">
           <GamepadInfo />
-        </div>
-        <div className="p-2 mt-2 rounded-lg bg-gamepad-section-content shadow-lg shadow-shadow-500/50">
           <AxesSVG />
         </div>
       </div>
@@ -29,9 +27,9 @@ export default function GamepadTester() {
         <div className="bg-main-background p-2 m-2 rounded-lg shadow-lg shadow-shadow-500/50">
           <XboxSVG />
         </div>
-        <div className="bg-main-background p-2 m-2 rounded-lg shadow-lg shadow-shadow-500/50">
+        {/* <div className="bg-main-background p-2 m-2 rounded-lg shadow-lg shadow-shadow-500/50">
           <PS4SVG />
-        </div>
+        </div> */}
       </div>
 
       <GamepadAPI />
