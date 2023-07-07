@@ -1,5 +1,6 @@
 "use client";
 
+import { styled } from "styled-components";
 import { useAtom } from "jotai/react";
 import {
   atomAPressed,
@@ -54,8 +55,17 @@ export function GamepadInfo() {
   const [connectionStatus] = useAtom(atomConnectionStatus);
   const [gamepadName] = useAtom(atomGamepadName);
 
+  const GamepadInfoWrapper = styled.div`
+    background-color: aqua;
+    border-radius: 5px 5px 0 0;
+    margin-top: 2px;
+    padding: 5px;
+    display: grid;
+  `;
+
   return (
     <>
+    <GamepadInfoWrapper>
       STATUS:{" "}
       {connectionStatus
         ? `OK - ${gamepadName.substring(0, 19)}`
@@ -83,6 +93,7 @@ export function GamepadInfo() {
       <div>LEFT{leftPressed && " OK"}</div>
       <div>Logo{logoPressed && "OK"}</div>
       {/* <div>TOUCHBAR{touchbarPressed && "OK"}</div> */}
+      </GamepadInfoWrapper>
     </>
   );
 }

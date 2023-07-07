@@ -2,6 +2,19 @@
 
 import { styled } from "styled-components";
 
+const NavBarWrapper = styled.nav`
+  background-color: pink;
+  padding: 5px;
+  border-radius: 0 0 5px 5px;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+  max-width: 600px;
+  margin: auto;
+`;
+
 const Title = styled.h1`
   color: red;
 `;
@@ -15,13 +28,15 @@ const Button = styled.button`
 
 export default function NavBar() {
   return (
-    <div>
-      <Title>Gamepad Tester</Title>
-      <Button>Button 1</Button>
-      <Button>Button 2</Button>
-      <Button>Button 3</Button>
-      <Button>Button 4</Button>
-      <Button>Button 5</Button>
-    </div>
+    <>
+      <NavBarWrapper>
+        <Title>Gamepad Tester</Title>
+        <ButtonWrapper>
+          <Button>About</Button>
+          <Button>Fixing Info</Button>
+          <Button>Info</Button>
+        </ButtonWrapper>
+      </NavBarWrapper>
+    </>
   );
 }
