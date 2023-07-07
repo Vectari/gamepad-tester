@@ -17,7 +17,9 @@ module.exports = {
     colors: {
       "gamepad-fill": "#ffffff",
       "gamepad-line": "#000000",
-      "test-color": "#567387",
+      "nav-bar": "	#708090",
+      "gamepad-tester": "#778899",
+      "gamepad-section": "#ffffff",
     },
   },
   plugins: [],
