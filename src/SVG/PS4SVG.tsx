@@ -150,6 +150,11 @@ export function PS4SVG() {
                 cy={354 + leftY * 7}
                 r="25"
                 stroke-width={l3Pressed ? "5" : "2"}
+                fill={
+                  Math.abs(leftX) > 0.1 || Math.abs(leftY) > 0.1
+                    ? `rgba(0,0,0,${Math.abs(leftX) + Math.abs(leftY)})`
+                    : "rgb(255, 255, 255)"
+                }
               ></circle>
               <circle
                 // R AXES AND R3
@@ -157,6 +162,11 @@ export function PS4SVG() {
                 cy={354 + rightY * 7}
                 r="25"
                 stroke-width={r3Pressed ? "5" : "2"}
+                fill={
+                  Math.abs(rightX) > 0.1 || Math.abs(rightY) > 0.1
+                    ? `rgba(0,0,0,${Math.abs(rightX) + Math.abs(rightY)})`
+                    : "rgb(255, 255, 255)"
+                }
               ></circle>
               <path
                 // BODY

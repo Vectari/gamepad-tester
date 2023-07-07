@@ -117,7 +117,7 @@ export function XboxSVG() {
                 width="27"
                 height="55"
                 rx="8"
-                fill={lt ? `rgba(0,0,0,${lt})` : "rgb(255, 255, 255)"}
+                fill={rt ? `rgba(0,0,0,${rt})` : "rgb(255, 255, 255)"}
                 stroke="#000000"
                 stroke-width="2"
               ></rect>
@@ -128,6 +128,11 @@ export function XboxSVG() {
                 cy={210.8 + leftY * 8}
                 r="40"
                 stroke-width={l3Pressed ? "5" : "2"}
+                fill={
+                  Math.abs(leftX) > 0.1 || Math.abs(leftY) > 0.1
+                    ? `rgba(0,0,0,${Math.abs(leftX) + Math.abs(leftY)})`
+                    : "rgb(255, 255, 255)"
+                }
               ></circle>
               <circle
                 // X BUTTON
@@ -184,6 +189,11 @@ export function XboxSVG() {
                 cy={300.8 + rightY * 8}
                 r="40"
                 stroke-width={r3Pressed ? "5" : "2"}
+                fill={
+                  Math.abs(rightX) > 0.1 || Math.abs(rightY) > 0.1
+                    ? `rgba(0,0,0,${Math.abs(rightX) + Math.abs(rightY)})`
+                    : "rgb(255, 255, 255)"
+                }
               ></circle>
               <path
                 // D-PAD
