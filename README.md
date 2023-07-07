@@ -7,6 +7,7 @@ Used libraries and frameworks:
 - Next.js 13.4.7
 - ESLint 8.43.0
 - Tailwind CSS 3.3.2
+- styled-components 6.0.3
 - TypeScript 5.1.3
 - Vercel
 - jotai 2.2.1
