@@ -16,20 +16,20 @@ export default function GamepadTester() {
   const [connectionStatus] = useAtom(atomConnectionStatus);
 
   return (
-    <div className="flex justify-center bg-gamepad-section-background rounded-t-lg mt-4">
-      <div className="mt-5">
-        <div className="p-2 rounded-lg bg-gamepad-section-content shadow-lg shadow-shadow-500/50">
+    <div>
+      <div>
+        <div>
           <GamepadInfo />
           <AxesSVG />
         </div>
       </div>
-      <div className="ml-20 mt-3 rounded-lg bg-gamepad-section">
-        <div className="bg-main-background p-2 m-2 rounded-lg shadow-lg shadow-shadow-500/50">
+      <div>
+        <div>
           <XboxSVG />
         </div>
-        {/* <div className="bg-main-background p-2 m-2 rounded-lg shadow-lg shadow-shadow-500/50">
+        <div>
           <PS4SVG />
-        </div> */}
+        </div>
       </div>
 
       <GamepadAPI />

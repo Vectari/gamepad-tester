@@ -56,40 +56,32 @@ export function GamepadInfo() {
 
   return (
     <>
-      <div>
-        STATUS:{" "}
-        {connectionStatus
-          ? `OK - ${gamepadName.substring(0, 19)}`
-          : "Press any button..."}
-      </div>
+      STATUS:{" "}
+      {connectionStatus
+        ? `OK - ${gamepadName.substring(0, 19)}`
+        : "Press any button..."}
       {/* <button onClick={vibration()}>VIBRATION</button> */}
-      <div className="grid grid-cols-2 p-2">
-        <div>LeftX {leftX.toString().substring(0, 6)}</div>
-        <div>LeftY {leftY.toString().substring(0, 6)}</div>
-      </div>
-      <div className="grid grid-cols-2 p-2">
-        <div>RightX {rightX.toString().substring(0, 6)}</div>
-        <div>RightY {rightY.toString().substring(0, 6)}</div>
-      </div>
-      <div className="grid grid-cols-2 p-2">
-        <div>A{aPressed && " OK"}</div>
-        <div>B{bPressed && " OK"}</div>
-        <div>X{xPressed && " OK"}</div>
-        <div>Y{yPressed && " OK"}</div>
-        <div>LB{lbPressed && " OK"}</div>
-        <div>RB{rbPressed && " OK"}</div>
-        <div>LT {lt.toString().substring(0, 6)}</div>
-        <div>RT {rt.toString().substring(0, 6)}</div>
-        <div>Share{sharePressed && " OK"}</div>
-        <div>Options{optionsPressed && " OK"}</div>
-        <div>L3{l3Pressed && " OK"}</div>
-        <div>R3{r3Pressed && " OK"}</div>
-        <div>UP{upPressed && " OK"}</div>
-        <div>RIGHT{rightPressed && " OK"}</div>
-        <div>DOWN{downPressed && " OK"}</div>
-        <div>LEFT{leftPressed && " OK"}</div>
-        <div>Logo{logoPressed && "OK"}</div>
-      </div>
+      <div>LeftX {leftX.toString().substring(0, 6)}</div>
+      <div>LeftY {leftY.toString().substring(0, 6)}</div>
+      <div>RightX {rightX.toString().substring(0, 6)}</div>
+      <div>RightY {rightY.toString().substring(0, 6)}</div>
+      <div>A{aPressed && " OK"}</div>
+      <div>B{bPressed && " OK"}</div>
+      <div>X{xPressed && " OK"}</div>
+      <div>Y{yPressed && " OK"}</div>
+      <div>LB{lbPressed && " OK"}</div>
+      <div>RB{rbPressed && " OK"}</div>
+      <div>LT {lt.toString().substring(0, 6)}</div>
+      <div>RT {rt.toString().substring(0, 6)}</div>
+      <div>Share{sharePressed && " OK"}</div>
+      <div>Options{optionsPressed && " OK"}</div>
+      <div>L3{l3Pressed && " OK"}</div>
+      <div>R3{r3Pressed && " OK"}</div>
+      <div>UP{upPressed && " OK"}</div>
+      <div>RIGHT{rightPressed && " OK"}</div>
+      <div>DOWN{downPressed && " OK"}</div>
+      <div>LEFT{leftPressed && " OK"}</div>
+      <div>Logo{logoPressed && "OK"}</div>
       {/* <div>TOUCHBAR{touchbarPressed && "OK"}</div> */}
     </>
   );
