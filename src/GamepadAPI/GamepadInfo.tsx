@@ -82,8 +82,8 @@ export function GamepadInfo() {
   
 
   for (let i=0; i < buttons; i++) {
-    let bValue: number | null = navigator.getGamepads()[0].buttons[i].value
-    buttonsNumber.push(<div>B{i}: {<svg width="10px" height={bValue * 50}>
+    let bValue = navigator?.getGamepads()[0]?.buttons[i].value
+    buttonsNumber.push(<div>B{i}: {<svg width="10px" height={bValue! * 50}>
     <rect
       width="10px"
       height="50px"
