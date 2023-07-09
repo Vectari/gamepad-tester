@@ -7,7 +7,7 @@ import { atom, useAtom } from "jotai";
 //   const gamepad = navigator.getGamepads()[0];
 //   gamepad.vibrationActuator.playEffect("dual-rumble", {
 //     startDelay: 0,
-//     duration: 100,
+//     duration: 25,
 //     weakMagnitude: 1.0,
 //     strongMagnitude: 1.0,
 //   });
@@ -37,6 +37,7 @@ export const atomLogoPressed = atom(false);
 // export const atomTouchbarPressed = atom(false);
 export const atomConnectionStatus = atom(false);
 export const atomGamepadName = atom("");
+export const atomButtons = atom(0);
 
 export function GamepadAPI() {
   const [leftX, setLeftX] = useAtom(atomLeftX);
@@ -63,6 +64,7 @@ export function GamepadAPI() {
   // const [touchbarPressed, setTOUCHBARPressed] = useAtom(atomTouchbarPressed);
   const [connectionStatus, setConnectionStatus] = useAtom(atomConnectionStatus);
   const [gamepadName, setGamepadName] = useAtom(atomGamepadName);
+  const [buttons, setButtons] = useAtom(atomButtons);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -92,6 +94,7 @@ export function GamepadAPI() {
         // setTOUCHBARPressed(controller.buttons[17].pressed);
         setConnectionStatus(controller.connected);
         setGamepadName(controller.id);
+        setButtons(controller.buttons.length);
       }
     }, 1);
   });

@@ -1,6 +1,7 @@
 "use client";
 
 import { styled } from "styled-components";
+import Link from "next/link";
 
 const NavBarWrapper = styled.nav`
   background-color: pink;
@@ -30,11 +31,11 @@ export default function NavBar() {
   return (
     <>
       <NavBarWrapper>
-        <Title>Gamepad Tester</Title>
+        <Title><Link href="/">Gamepad Tester</Link></Title>
         <ButtonWrapper>
-          <Button>About</Button>
-          <Button>Fixing Info</Button>
-          <Button>Info</Button>
+          <Button><Link href="/about">About</Link></Button>
+          <Button><Link href="/fixinginfo">Fixing Info</Link></Button>
+          <Button><Link href="/info">Info</Link></Button>
         </ButtonWrapper>
       </NavBarWrapper>
     </>
