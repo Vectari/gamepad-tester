@@ -38,6 +38,7 @@ export const atomLogoPressed = atom(false);
 export const atomConnectionStatus = atom(false);
 export const atomGamepadName = atom("");
 export const atomButtons = atom(0);
+export const atomAxes = atom(0)
 
 export function GamepadAPI() {
   const [leftX, setLeftX] = useAtom(atomLeftX);
@@ -65,6 +66,7 @@ export function GamepadAPI() {
   const [connectionStatus, setConnectionStatus] = useAtom(atomConnectionStatus);
   const [gamepadName, setGamepadName] = useAtom(atomGamepadName);
   const [buttons, setButtons] = useAtom(atomButtons);
+  const [axes, setAxes] = useAtom(atomAxes);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -95,6 +97,7 @@ export function GamepadAPI() {
         setConnectionStatus(controller.connected);
         setGamepadName(controller.id);
         setButtons(controller.buttons.length);
+        setAxes(controller.axes.length);
       }
     }, 1);
   });

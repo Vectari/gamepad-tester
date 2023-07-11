@@ -28,6 +28,7 @@ import {
   atomXPressed,
   atomYPressed,
   atomButtons,
+  atomAxes,
 } from "./GamepadAPI";
 
 export function GamepadInfo() {
@@ -56,6 +57,7 @@ export function GamepadInfo() {
   const [connectionStatus] = useAtom(atomConnectionStatus);
   const [gamepadName] = useAtom(atomGamepadName);
   const [buttons] = useAtom(atomButtons);
+  const [axes] = useAtom(atomAxes);
 
   const GamepadInfoWrapper = styled.div`
     background-color: aqua;
@@ -67,21 +69,7 @@ export function GamepadInfo() {
 
   let buttonsNumber = [];
 
-  // for (let i=0; i < buttons; i++) {
-  //   buttonsNumber.push(<div>B{i}: {navigator.getGamepads()[0].buttons[i].value && `${navigator.getGamepads()[0].buttons[i].value}`}</div>)
-  // }
-
-  // <svg width="10px" height={lt * 50}>
-  //           <rect
-  //             width="10px"
-  //             height="50px"
-  //             fill={lt == 1 ? "green" : "red"}
-  //           ></rect>
-  //         </svg>
-
-  
-
-  for (let i=0; i < buttons; i++) {
+   for (let i=0; i < buttons; i++) {
     let bValue = navigator?.getGamepads()[0]?.buttons[i].value
     buttonsNumber.push(<div>B{i}: {<svg width="10px" height={bValue! * 50}>
     <rect
@@ -90,6 +78,13 @@ export function GamepadInfo() {
       fill={bValue == 1 ? "green" : "red"}
     ></rect>
   </svg>}</div>)
+  }
+
+  let axesNumber =[];
+
+  for (let i=0; i < axes; i++) {
+    let aValue = navigator?.getGamepads()[0]?.axes
+    axesNumber.push(<div>Axes{i}: {aValue![i]}</div>)
   }
 
   
@@ -134,8 +129,9 @@ export function GamepadInfo() {
         {/* <div>TOUCHBAR{touchbarPressed && "OK"}</div> 
       </GamepadInfoWrapper> */}
       <GamepadInfoWrapper>
-        
+        {axesNumber}
        {buttonsNumber}
+       
       </GamepadInfoWrapper>
     </>
   );
