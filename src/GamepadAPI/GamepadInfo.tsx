@@ -23,13 +23,14 @@ import {
   atomRightY,
   atomRt,
   atomSharePressed,
-  // atomTouchbarPressed,
+  atomTouchbarPressed,
   atomUpPressed,
   atomXPressed,
   atomYPressed,
   atomButtons,
   atomAxes,
 } from "./GamepadAPI";
+import { AxesSVG } from "@/SVG/AxesSVG";
 
 export function GamepadInfo() {
   const [leftX] = useAtom(atomLeftX);
@@ -53,6 +54,7 @@ export function GamepadInfo() {
   const [sharePressed] = useAtom(atomSharePressed);
   const [optionsPressed] = useAtom(atomOptionsPressed);
   const [logoPressed] = useAtom(atomLogoPressed);
+  const [touchbarPressed] = useAtom(atomTouchbarPressed);
   const [connectionStatus] = useAtom(atomConnectionStatus);
   const [gamepadName] = useAtom(atomGamepadName);
   const [buttons] = useAtom(atomButtons);
@@ -138,6 +140,7 @@ export function GamepadInfo() {
       <GamepadInfoWrapper>
         {axesNumber}
         {buttonsNumber}
+        {buttons}
       </GamepadInfoWrapper>
     </>
   );
