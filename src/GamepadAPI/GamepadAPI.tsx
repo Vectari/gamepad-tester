@@ -34,11 +34,11 @@ export const atomRightPressed = atom(false);
 export const atomSharePressed = atom(false);
 export const atomOptionsPressed = atom(false);
 export const atomLogoPressed = atom(false);
-// export const atomTouchbarPressed = atom(false);
+export const atomTouchbarPressed = atom(false);
 export const atomConnectionStatus = atom(false);
 export const atomGamepadName = atom("");
 export const atomButtons = atom(0);
-export const atomAxes = atom(0)
+export const atomAxes = atom(0);
 
 export function GamepadAPI() {
   const [leftX, setLeftX] = useAtom(atomLeftX);
@@ -61,8 +61,8 @@ export function GamepadAPI() {
   const [rightPressed, setRIGHTPressed] = useAtom(atomRightPressed);
   const [sharePressed, setSHAREPressed] = useAtom(atomSharePressed);
   const [optionsPressed, setOPTIONSPressed] = useAtom(atomOptionsPressed);
-  const [logoPressed, setLOGOPressed] = useAtom(atomLogoPressed);
-  // const [touchbarPressed, setTOUCHBARPressed] = useAtom(atomTouchbarPressed);
+  const [logoPressed, setLogoPressed] = useAtom(atomLogoPressed);
+  const [touchbarPressed, setTouchbarPressed] = useAtom(atomTouchbarPressed);
   const [connectionStatus, setConnectionStatus] = useAtom(atomConnectionStatus);
   const [gamepadName, setGamepadName] = useAtom(atomGamepadName);
   const [buttons, setButtons] = useAtom(atomButtons);
@@ -92,8 +92,8 @@ export function GamepadAPI() {
         setRIGHTPressed(controller.buttons[15].pressed);
         setSHAREPressed(controller.buttons[8].pressed);
         setOPTIONSPressed(controller.buttons[9].pressed);
-        setLOGOPressed(controller.buttons[16].pressed);
-        // setTOUCHBARPressed(controller.buttons[17].pressed);
+        setLogoPressed(controller.buttons[16].pressed);
+        setTouchbarPressed(controller.buttons[17]?.pressed);
         setConnectionStatus(controller.connected);
         setGamepadName(controller.id);
         setButtons(controller.buttons.length);
