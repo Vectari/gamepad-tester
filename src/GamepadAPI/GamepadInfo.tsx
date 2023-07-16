@@ -64,7 +64,23 @@ export function GamepadInfo() {
     background-color: aqua;
     border-radius: 5px 5px 0 0;
     margin-top: 2px;
-    padding: 5px;
+    padding: 10px;
+    width: 600px;
+    position: relative;
+  `;
+
+  const StyledButtons = styled.div`
+    background-color: silver;
+    margin: 5px;
+    padding: 10px;
+    width: 68px;
+    display: inline-block;
+
+  `;
+
+  const StyledSVG = styled.svg`
+    height: 25px;
+    width: 10px;
   `;
 
   let buttonsNumber = [];
@@ -72,18 +88,20 @@ export function GamepadInfo() {
   for (let i = 0; i < buttons; i++) {
     let bValue = navigator?.getGamepads()[0]?.buttons[i].value;
     buttonsNumber.push(
-      <div>
+      <StyledButtons>
         B{i}:{" "}
         {
-          <svg width="10px" height={bValue! * 50}>
+          <StyledSVG>
+          <svg width="10px" height={bValue! * 20}>
             <rect
               width="10px"
-              height="50px"
+              height="20px"
               fill={bValue == 1 ? "green" : "red"}
             ></rect>
           </svg>
+          </StyledSVG>
         }
-      </div>
+      </StyledButtons>
     );
   }
 
@@ -138,9 +156,9 @@ export function GamepadInfo() {
         {/* <div>TOUCHBAR{touchbarPressed && "OK"}</div> 
       </GamepadInfoWrapper> */}
       <GamepadInfoWrapper>
-        {axesNumber}
-        {buttonsNumber}
         {buttons}
+        {axesNumber}
+          {buttonsNumber}
       </GamepadInfoWrapper>
     </>
   );
