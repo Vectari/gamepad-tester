@@ -63,24 +63,33 @@ export function GamepadInfo() {
   const GamepadInfoWrapper = styled.div`
     background-color: aqua;
     border-radius: 5px 5px 0 0;
-    margin-top: 2px;
+    margin: 2px;
     padding: 10px;
-    width: 600px;
+    width: 100vw;
     position: relative;
+
+    @media (min-width: 425px) {
+      width: 400px;
+      margin: 2px auto;
+    }
   `;
 
   const StyledButtons = styled.div`
     background-color: silver;
-    margin: 5px;
-    padding: 10px;
+    padding: 5px;
     width: 68px;
     display: inline-block;
-
+    margin: 5px;
+    border-radius: 5px;
+  
   `;
 
   const StyledSVG = styled.svg`
+  padding-left: 5px;
     height: 25px;
-    width: 10px;
+    position: absolute;
+    border-radius: 5px;
+
   `;
 
   let buttonsNumber = [];
@@ -94,7 +103,7 @@ export function GamepadInfo() {
           <StyledSVG>
           <svg width="10px" height={bValue! * 20}>
             <rect
-              width="10px"
+              width="7px"
               height="20px"
               fill={bValue == 1 ? "green" : "red"}
             ></rect>
@@ -159,6 +168,8 @@ export function GamepadInfo() {
         {buttons}
         {axesNumber}
           {buttonsNumber}
+          <div>
+        <AxesSVG /></div>
       </GamepadInfoWrapper>
     </>
   );
