@@ -1,5 +1,6 @@
 "use client";
 
+import { styled } from "styled-components";
 import { AxesSVG } from "@/SVG/AxesSVG";
 import { XboxSVG } from "@/SVG/XboxSVG";
 import { PS4SVG } from "@/SVG/PS4SVG";
@@ -12,6 +13,9 @@ import {
 } from "@/GamepadAPI/GamepadAPI";
 import { useAtom } from "jotai/react";
 
+const StyledGamepadSVG = styled.div`
+`;
+
 export default function GamepadTester() {
   const [gamepadName] = useAtom(atomGamepadName);
   const [connectionStatus] = useAtom(atomConnectionStatus);
@@ -20,8 +24,10 @@ export default function GamepadTester() {
   if ((buttons === 17) && (gamepadName === "Xbox 360 Controller (XInput STANDARD GAMEPAD)")) {
     return (
       <div>
-        <AxesSVG />
+        
+        <StyledGamepadSVG>
         <XboxSVG />
+        </StyledGamepadSVG>
         <GamepadAPI />
       </div>
     );
@@ -39,31 +45,9 @@ export default function GamepadTester() {
   } else {
     return (
       <div>
-        <AxesSVG />
         <PS4SVG />
         <GamepadAPI />
       </div>
     );
   }
-  // return (
-  //   <div>
-  //     <div>
-  //       <div>
-  //         {buttons}
-  //         <GamepadInfo />
-  //         <AxesSVG />
-  //       </div>
-  //     </div>
-  //     <div>
-  //       <div>
-  //         <XboxSVG />
-  //       </div>
-  //       <div>
-  //         <PS4SVG />
-  //       </div>
-  //     </div>
-
-  //     <GamepadAPI />
-  //   </div>
-  // );
 }

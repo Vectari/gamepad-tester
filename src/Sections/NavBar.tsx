@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 import Link from "next/link";
 
 const NavBarWrapper = styled.nav`
-  background-color: pink;
+  background-color: #8d8c8c;
   padding: 5px;
   border-radius: 0 0 5px 5px;
 `;
@@ -14,6 +14,7 @@ const ButtonWrapper = styled.div`
   justify-content: space-around;
   max-width: 600px;
   margin: auto;
+  padding-top: 5px;
 `;
 
 const Title = styled.h1`
@@ -21,10 +22,11 @@ const Title = styled.h1`
 `;
 
 const Button = styled.button`
-  background-color: yellow;
+  background-color: #9de7a3;
   padding: 4px;
   border-radius: 5px;
   font-size: 20px;
+
 `;
 
 export default function NavBar() {

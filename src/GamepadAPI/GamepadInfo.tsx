@@ -61,10 +61,35 @@ export function GamepadInfo() {
   const [axes] = useAtom(atomAxes);
 
   const GamepadInfoWrapper = styled.div`
-    background-color: aqua;
+    background-color: #f1e7e7;
     border-radius: 5px 5px 0 0;
-    margin-top: 2px;
+    margin: 2px;
+    padding: 10px;
+    width: 100vw;
+    position: relative;
+
+    @media (min-width: 425px) {
+      width: 400px;
+      margin: 2px auto;
+    }
+  `;
+
+  const StyledButtons = styled.div`
+    background-color: silver;
     padding: 5px;
+    width: 68px;
+    display: inline-block;
+    margin: 5px;
+    border-radius: 5px;
+  
+  `;
+
+  const StyledSVG = styled.svg`
+  padding-left: 5px;
+    height: 25px;
+    position: absolute;
+    border-radius: 5px;
+
   `;
 
   let buttonsNumber = [];
@@ -72,18 +97,20 @@ export function GamepadInfo() {
   for (let i = 0; i < buttons; i++) {
     let bValue = navigator?.getGamepads()[0]?.buttons[i].value;
     buttonsNumber.push(
-      <div>
+      <StyledButtons>
         B{i}:{" "}
         {
-          <svg width="10px" height={bValue! * 50}>
+          <StyledSVG>
+          <svg width="10px" height={bValue! * 20}>
             <rect
-              width="10px"
-              height="50px"
+              width="7px"
+              height="20px"
               fill={bValue == 1 ? "green" : "red"}
             ></rect>
           </svg>
+          </StyledSVG>
         }
-      </div>
+      </StyledButtons>
     );
   }
 
@@ -138,9 +165,11 @@ export function GamepadInfo() {
         {/* <div>TOUCHBAR{touchbarPressed && "OK"}</div> 
       </GamepadInfoWrapper> */}
       <GamepadInfoWrapper>
-        {axesNumber}
-        {buttonsNumber}
         {buttons}
+        {axesNumber}
+          {buttonsNumber}
+          <div>
+        <AxesSVG /></div>
       </GamepadInfoWrapper>
     </>
   );
