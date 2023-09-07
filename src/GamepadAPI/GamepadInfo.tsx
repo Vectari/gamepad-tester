@@ -61,7 +61,7 @@ export function GamepadInfo() {
   const [axes] = useAtom(atomAxes);
 
   const GamepadInfoWrapper = styled.div`
-    background-color: aqua;
+    background-color: #f1e7e7;
     border-radius: 5px 5px 0 0;
     margin: 2px;
     padding: 10px;
