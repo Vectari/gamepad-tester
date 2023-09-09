@@ -1,5 +1,6 @@
 "use client";
 
+import { Theme } from "@/app/Theme";
 import { styled } from "styled-components";
 import Link from "next/link";
 
@@ -17,8 +18,9 @@ const ButtonWrapper = styled.div`
   padding-top: 5px;
 `;
 
-const Title = styled.h1`
-  color: red;
+const StyledLink = styled.a`
+  text-decoration: none;
+  color: ${Theme.colors.pink};
 `;
 
 const Button = styled.button`
@@ -26,18 +28,25 @@ const Button = styled.button`
   padding: 4px;
   border-radius: 5px;
   font-size: 20px;
-
 `;
 
 export default function NavBar() {
   return (
     <>
       <NavBarWrapper>
-        <Title><Link href="/">Gamepad Tester</Link></Title>
+        <StyledLink href="/">
+          Gamepad Tester
+        </StyledLink>
         <ButtonWrapper>
-          <Button><Link href="/about">About</Link></Button>
-          <Button><Link href="/fixinginfo">Fixing Info</Link></Button>
-          <Button><Link href="/info">Info</Link></Button>
+          <Button>
+            <Link href="/about">About</Link>
+          </Button>
+          <Button>
+            <Link href="/fixinginfo">Fixing Info</Link>
+          </Button>
+          <Button>
+            <Link href="/info">Info</Link>
+          </Button>
         </ButtonWrapper>
       </NavBarWrapper>
     </>
