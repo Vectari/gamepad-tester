@@ -54,7 +54,7 @@ export function XboxSVG() {
   return (
     <>
       <svg
-        fill="#ffffff"
+        fill={Theme.SVGColors.white}
         stroke="black"
         stroke-width="2"
         version="1.1"
@@ -86,7 +86,7 @@ export function XboxSVG() {
                 height="27"
                 rx="6.5"
                 fill={lbPressed ? "black" : "white"}
-                stroke="#000000"
+                stroke={Theme.SVGColors.black}
                 stroke-width="2"
               ></rect>
               <rect
@@ -97,7 +97,7 @@ export function XboxSVG() {
                 height="27"
                 rx="6.5"
                 fill={rbPressed ? "black" : "white"}
-                stroke="#000000"
+                stroke={Theme.SVGColors.black}
                 stroke-width="2"
               ></rect>
               <rect
@@ -108,7 +108,7 @@ export function XboxSVG() {
                 height="55"
                 rx="8"
                 fill={lt ? `rgba(0,0,0,${lt})` : "rgb(255, 255, 255)"}
-                stroke="#000000"
+                stroke={Theme.SVGColors.black}
                 stroke-width="2"
               ></rect>
               <rect
@@ -119,7 +119,7 @@ export function XboxSVG() {
                 height="55"
                 rx="8"
                 fill={rt ? `rgba(0,0,0,${rt})` : "rgb(255, 255, 255)"}
-                stroke="#000000"
+                stroke={Theme.SVGColors.black}
                 stroke-width="2"
               ></rect>
               <path d="M305.053,130c-3.182,1.512-8.127,3.941-8.616,6.634c0,0,13.488,13.14,12.895,25.251c2.754-3.874,4.412-8.58,4.412-13.684 C313.743,140.851,310.316,134.358,305.053,130z"></path>{" "}
