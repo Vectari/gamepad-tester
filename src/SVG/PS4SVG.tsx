@@ -1,5 +1,6 @@
 "use client";
 
+import { Theme } from "@/app/Theme";
 import { useAtom } from "jotai";
 import {
   atomLeftX,
@@ -57,7 +58,7 @@ export function PS4SVG() {
   return (
     <>
       <svg
-        fill="#ffffff"
+        fill={Theme.SVGColors.white}
         stroke="black"
         stroke-width="2"
         version="1.1"
@@ -89,7 +90,7 @@ export function PS4SVG() {
                 height="27"
                 rx="6.5"
                 fill={lbPressed ? "black" : "white"}
-                stroke="#000000"
+                stroke={Theme.SVGColors.black}
                 stroke-width="2"
               ></rect>
               <rect
@@ -100,7 +101,7 @@ export function PS4SVG() {
                 height="27"
                 rx="6.5"
                 fill={rbPressed ? "black" : "white"}
-                stroke="#000000"
+                stroke={Theme.SVGColors.black}
                 stroke-width="2"
               ></rect>
               <rect
@@ -111,7 +112,7 @@ export function PS4SVG() {
                 height="55"
                 rx="8"
                 fill={lt ? `rgba(0,0,0,${lt})` : "rgb(255, 255, 255)"}
-                stroke="#000000"
+                stroke={Theme.SVGColors.black}
                 stroke-width="2"
               ></rect>
               <rect
@@ -122,7 +123,7 @@ export function PS4SVG() {
                 height="55"
                 rx="8"
                 fill={rt ? `rgba(0,0,0,${rt})` : "rgb(255, 255, 255)"}
-                stroke="#000000"
+                stroke={Theme.SVGColors.black}
                 stroke-width="2"
               ></rect>
               <path
