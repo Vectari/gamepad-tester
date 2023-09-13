@@ -81,15 +81,13 @@ export function GamepadInfo() {
     display: inline-block;
     margin: 5px;
     border-radius: 5px;
-  
   `;
 
   const StyledSVG = styled.svg`
-  padding-left: 5px;
+    padding-left: 5px;
     height: 25px;
     position: absolute;
     border-radius: 5px;
-
   `;
 
   let buttonsNumber = [];
@@ -101,13 +99,13 @@ export function GamepadInfo() {
         B{i}:{" "}
         {
           <StyledSVG>
-          <svg width="10px" height={bValue! * 20}>
-            <rect
-              width="7px"
-              height="20px"
-              fill={bValue == 1 ? "green" : "red"}
-            ></rect>
-          </svg>
+            <svg width="10px" height={bValue! * 20}>
+              <rect
+                width="7px"
+                height="20px"
+                fill={bValue == 1 ? "green" : "red"}
+              ></rect>
+            </svg>
           </StyledSVG>
         }
       </StyledButtons>
@@ -127,49 +125,13 @@ export function GamepadInfo() {
 
   return (
     <>
-      {/* <GamepadInfoWrapper>
-        STATUS:{" "}
-        {connectionStatus
-          ? `OK - ${gamepadName.substring(0, 19)}`
-          : "Press any button..."}
-        <div>LeftX {leftX.toString().substring(0, 6)}</div>
-        <div>LeftY {leftY.toString().substring(0, 6)}</div>
-        <div>RightX {rightX.toString().substring(0, 6)}</div>
-        <div>RightY {rightY.toString().substring(0, 6)}</div>
-        <div>
-          A
-          
-        </div>
-        <div>B{bPressed && " OK"}</div>
-        <div>X{xPressed && " OK"}</div>
-        <div>Y{yPressed && " OK"}</div>
-        <div>LB{lbPressed && " OK"}</div>
-        <div>RB{rbPressed && " OK"}</div>
-        <div>LT <svg width="10px" height={lt * 50}>
-            <rect
-              width="10px"
-              height="50px"
-              fill={lt == 1 ? "green" : "red"}
-            ></rect>
-          </svg>{lt.toString().substring(0, 6)}</div>
-        <div>RT {rt.toString().substring(0, 6)}</div>
-        <div>Share{sharePressed && " OK"}</div>
-        <div>Options{optionsPressed && " OK"}</div>
-        <div>L3{l3Pressed && " OK"}</div>
-        <div>R3{r3Pressed && " OK"}</div>
-        <div>UP{upPressed && " OK"}</div>
-        <div>RIGHT{rightPressed && " OK"}</div>
-        <div>DOWN{downPressed && " OK"}</div>
-        <div>LEFT{leftPressed && " OK"}</div>
-        <div>Logo{logoPressed && "OK"}</div>
-        {/* <div>TOUCHBAR{touchbarPressed && "OK"}</div> 
-      </GamepadInfoWrapper> */}
       <GamepadInfoWrapper>
         {buttons}
         {axesNumber}
-          {buttonsNumber}
-          <div>
-        <AxesSVG /></div>
+        {buttonsNumber}
+        <div>
+          <AxesSVG />
+        </div>
       </GamepadInfoWrapper>
     </>
   );
