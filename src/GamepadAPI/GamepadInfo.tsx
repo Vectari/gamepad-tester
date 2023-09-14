@@ -1,13 +1,5 @@
 "use client";
 
-
-
-// asdasdsadadadadadadadsa
-// dadsadadsadadsa
-// dasadadsadadasdadas
-// dadsadadsadasdadadsadadasdadsadasd
-// asdasdasdadasds
-
 import { styled } from "styled-components";
 import { useAtom } from "jotai/react";
 import {
@@ -39,6 +31,8 @@ import {
   atomAxes,
 } from "./GamepadAPI";
 import { AxesSVG } from "@/SVG/AxesSVG";
+import { Theme } from "@/app/Theme";
+import GamepadTester from "@/Sections/GamepadTester";
 
 export function GamepadInfo() {
   const [leftX] = useAtom(atomLeftX);
@@ -79,6 +73,28 @@ export function GamepadInfo() {
     @media (min-width: 425px) {
       width: 400px;
       margin: 2px auto;
+    }
+    @media (min-width: 768px) {
+      width: 600px;
+    }
+  `;
+
+  const StyledNotConnectedInfo = styled.h1``;
+
+  const StyledLoader = styled.div`
+    border: 16px solid ${Theme.BasicColors.white};
+    border-top: 16px solid ${Theme.BasicColors.darkturquoise};
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
   `;
 
@@ -131,16 +147,32 @@ export function GamepadInfo() {
     );
   }
 
-  return (
-    <>
-      <GamepadInfoWrapper>
-        {buttons}
-        {axesNumber}
-        {buttonsNumber}
-        <div>
-          <AxesSVG />
-        </div>
-      </GamepadInfoWrapper>
-    </>
-  );
+  if (buttons === 0) {
+    return (
+      <>
+        <GamepadInfoWrapper>
+          {/* {buttons} */}
+          {axesNumber}
+          {buttonsNumber}
+          <StyledNotConnectedInfo>
+            Please connect you gamepad via USB or BT and push any button.
+            <StyledLoader></StyledLoader>
+          </StyledNotConnectedInfo>
+        </GamepadInfoWrapper>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <GamepadInfoWrapper>
+          {/* {buttons} */}
+          {axesNumber}
+          {buttonsNumber}
+          <div>
+          {<AxesSVG />}</div>
+          {/* <GamepadTester /> */}
+        </GamepadInfoWrapper>
+      </>
+    );
+  }
 }

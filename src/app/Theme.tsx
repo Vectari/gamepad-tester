@@ -1,5 +1,6 @@
 export const Theme = {
   BasicColors: {
+    white: "#FFF",
     black: "#0B0C10",
     bunker: "#1F2833",
     lightgrey: "#C5C6C7",
