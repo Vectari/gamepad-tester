@@ -13,6 +13,10 @@ import {
 } from "@/GamepadAPI/GamepadAPI";
 import { useAtom } from "jotai/react";
 
+const StyledDiv = styled.div`
+//SOMETHING HERE TO NOT MAKE BIGGER GAMEPADINFO SECTION AFTER RENDER
+`;
+
 export default function GamepadTester() {
   const [gamepadName] = useAtom(atomGamepadName);
   const [connectionStatus] = useAtom(atomConnectionStatus);
@@ -23,33 +27,33 @@ export default function GamepadTester() {
     gamepadName === "Xbox 360 Controller (XInput STANDARD GAMEPAD)"
   ) {
     return (
-      <div>
+      <StyledDiv>
         <XboxSVG />
         <GamepadAPI />
-      </div>
+      </StyledDiv>
     );
   } else if (
     buttons === 17 &&
     gamepadName !== "Xbox 360 Controller (XInput STANDARD GAMEPAD)"
   ) {
     return (
-      <div>
+      <StyledDiv>
         <h2>Other gamepad</h2>
         <GamepadAPI />
-      </div>
+      </StyledDiv>
     );
   } else if (buttons === 0) {
     return (
-      <div>
+      <StyledDiv>
         <GamepadAPI />
-      </div>
+      </StyledDiv>
     );
   } else {
     return (
-      <div>
+      <StyledDiv>
         <PS4SVG />
         <GamepadAPI />
-      </div>
+      </StyledDiv>
     );
   }
 }
