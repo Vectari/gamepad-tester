@@ -29,8 +29,11 @@ import {
   atomYPressed,
   atomButtons,
   atomAxes,
+  GamepadAPI,
 } from "./GamepadAPI";
 import { AxesSVG } from "@/SVG/AxesSVG";
+import { Theme } from "@/app/Theme";
+import GamepadTester from "@/Sections/GamepadTester";
 
 export function GamepadInfo() {
   const [leftX] = useAtom(atomLeftX);
@@ -60,117 +63,103 @@ export function GamepadInfo() {
   const [buttons] = useAtom(atomButtons);
   const [axes] = useAtom(atomAxes);
 
-  const GamepadInfoWrapper = styled.div`
-    background-color: #f1e7e7;
-    border-radius: 5px 5px 0 0;
-    margin: 2px;
-    padding: 10px;
-    width: 100vw;
-    position: relative;
-
-    @media (min-width: 425px) {
-      width: 400px;
-      margin: 2px auto;
-    }
-  `;
-
-  const StyledButtons = styled.div`
-    background-color: silver;
-    padding: 5px;
-    width: 68px;
-    display: inline-block;
-    margin: 5px;
-    border-radius: 5px;
-  
-  `;
-
-  const StyledSVG = styled.svg`
-  padding-left: 5px;
-    height: 25px;
-    position: absolute;
-    border-radius: 5px;
-
-  `;
-
   let buttonsNumber = [];
 
   for (let i = 0; i < buttons; i++) {
-    let bValue = navigator?.getGamepads()[0]?.buttons[i].value;
-    buttonsNumber.push(
-      <StyledButtons>
-        B{i}:{" "}
-        {
-          <StyledSVG>
-          <svg width="10px" height={bValue! * 20}>
-            <rect
-              width="7px"
-              height="20px"
-              fill={bValue == 1 ? "green" : "red"}
-            ></rect>
-          </svg>
-          </StyledSVG>
-        }
-      </StyledButtons>
-    );
+    let buttonsValue = navigator?.getGamepads()[0]?.buttons[i].value;
+
+    // `rgba(0,0,0,${lt})` : "rgb(255, 255, 255)"
+
+    const StyledButtons = styled.div`
+      background-color: ${buttonsValue! > 0 ? `rgba(0,0,0,${buttonsValue})` : `${Theme.BasicColors.white}`};
+      color: ${Theme.BasicColors.darkturquoise};
+      padding: 5px;
+      margin: 5px;
+      border-radius: 10px;
+      width: 45px;
+    `;
+    buttonsNumber.push(<StyledButtons>B {i}</StyledButtons>);
   }
 
   let axesNumber = [];
 
   for (let i = 0; i < axes; i++) {
-    let aValue = navigator?.getGamepads()[0]?.axes;
+    let axesValue = navigator?.getGamepads()[0]?.axes;
     axesNumber.push(
-      <div>
-        Axes{i}: {aValue![i].toString().substring(0, 6)}
-      </div>
+      <StyledAxesInfo>
+        <div>
+          Axis {i}:{" "}
+          {Math.abs(axesValue![i]).toFixed(3).toString().substring(0, 5)}
+        </div>
+      </StyledAxesInfo>
     );
   }
 
-  return (
-    <>
-      {/* <GamepadInfoWrapper>
-        STATUS:{" "}
-        {connectionStatus
-          ? `OK - ${gamepadName.substring(0, 19)}`
-          : "Press any button..."}
-        <div>LeftX {leftX.toString().substring(0, 6)}</div>
-        <div>LeftY {leftY.toString().substring(0, 6)}</div>
-        <div>RightX {rightX.toString().substring(0, 6)}</div>
-        <div>RightY {rightY.toString().substring(0, 6)}</div>
-        <div>
-          A
-          
-        </div>
-        <div>B{bPressed && " OK"}</div>
-        <div>X{xPressed && " OK"}</div>
-        <div>Y{yPressed && " OK"}</div>
-        <div>LB{lbPressed && " OK"}</div>
-        <div>RB{rbPressed && " OK"}</div>
-        <div>LT <svg width="10px" height={lt * 50}>
-            <rect
-              width="10px"
-              height="50px"
-              fill={lt == 1 ? "green" : "red"}
-            ></rect>
-          </svg>{lt.toString().substring(0, 6)}</div>
-        <div>RT {rt.toString().substring(0, 6)}</div>
-        <div>Share{sharePressed && " OK"}</div>
-        <div>Options{optionsPressed && " OK"}</div>
-        <div>L3{l3Pressed && " OK"}</div>
-        <div>R3{r3Pressed && " OK"}</div>
-        <div>UP{upPressed && " OK"}</div>
-        <div>RIGHT{rightPressed && " OK"}</div>
-        <div>DOWN{downPressed && " OK"}</div>
-        <div>LEFT{leftPressed && " OK"}</div>
-        <div>Logo{logoPressed && "OK"}</div>
-        {/* <div>TOUCHBAR{touchbarPressed && "OK"}</div> 
-      </GamepadInfoWrapper> */}
-      <GamepadInfoWrapper>
-        {buttons}
-        {axesNumber}
+  if (buttons === 0) {
+    return (
+      <>
+        <GamepadInfoWrapper>
+          {axesNumber}
           {buttonsNumber}
-          <div>
-        <AxesSVG /></div>
-      </GamepadInfoWrapper>
-    </>
-  );
+          <StyledNotConnectedInfo>
+            Please connect you gamepad via USB or BT and push any button.
+            <StyledLoader />
+          </StyledNotConnectedInfo>
+        </GamepadInfoWrapper>
+        <GamepadAPI />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <GamepadInfoWrapper>
+          {axesNumber}
+          {buttonsNumber}
+          <div>{<AxesSVG />}</div>
+          <GamepadTester />
+        </GamepadInfoWrapper>
+        <GamepadAPI />
+      </>
+    );
+  }
 }
+
+const GamepadInfoWrapper = styled.div`
+  background-color: #f1e7e7;
+  border-radius: 5px 5px 0 0;
+  padding: 20px 40px;
+  position: relative;
+  /* 
+    @media (min-width: 425px) {
+      width: 400px;
+      margin: 2px auto;
+    }
+    @media (min-width: 768px) {
+      width: 600px;
+    } */
+`;
+
+const StyledNotConnectedInfo = styled.h1``;
+
+const StyledLoader = styled.div`
+  border: 16px solid ${Theme.BasicColors.white};
+  border-top: 16px solid ${Theme.BasicColors.darkturquoise};
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`;
+
+const StyledAxesInfo = styled.div`
+  display: inline-block;
+  padding-right: 15px;
+  width: 100px;
+`;
