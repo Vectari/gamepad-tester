@@ -35,6 +35,56 @@ import { AxesSVG } from "@/SVG/AxesSVG";
 import { Theme } from "@/app/Theme";
 import GamepadTester from "@/Sections/GamepadTester";
 
+// STYLES SECTION
+
+const NotConnectedWrapper = styled.div`
+  background-color: ${Theme.BasicColors.lightgrey};
+  padding: 30px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 10px;
+`;
+
+const ConnectedWrapper = styled.div`
+  background-color: ${Theme.BasicColors.lightgrey};
+  padding: 30px;
+  border-radius: 10px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+`;
+
+const AxesAndButtonsWrapper = styled.div``;
+
+const AxesWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+`;
+
+const ButtonsWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin: 70px 0 0 10px;
+`;
+
+const SvgWrapper = styled.div`
+  text-align: center;
+`;
+
+const GamepadName = styled.p`
+  background-color: ${Theme.BasicColors.white};
+  color: ${Theme.BasicColors.darkturquoise};
+  margin: 15px 0;
+  padding: 5px;
+  border-radius: 10px;
+`;
+
+// GAMEPAD API SECTION
+
 export function GamepadInfo() {
   const [leftX] = useAtom(atomLeftX);
   const [leftY] = useAtom(atomLeftY);
@@ -63,103 +113,72 @@ export function GamepadInfo() {
   const [buttons] = useAtom(atomButtons);
   const [axes] = useAtom(atomAxes);
 
-  let buttonsNumber = [];
+  // BUTTONS SECTION
 
+  let buttonsNumber = [];
   for (let i = 0; i < buttons; i++) {
     let buttonsValue = navigator?.getGamepads()[0]?.buttons[i].value;
 
-    // `rgba(0,0,0,${lt})` : "rgb(255, 255, 255)"
-
+    // STYLE FOR BUTTONS
     const StyledButtons = styled.div`
-      background-color: ${buttonsValue! > 0 ? `rgba(0,0,0,${buttonsValue})` : `${Theme.BasicColors.white}`};
+      background-color: ${buttonsValue! > 0
+        ? `rgba(0,0,0,${buttonsValue})`
+        : `${Theme.BasicColors.white}`};
       color: ${Theme.BasicColors.darkturquoise};
-      padding: 5px;
+      padding: 10px;
       margin: 5px;
       border-radius: 10px;
-      width: 45px;
+      width: 55px;
     `;
     buttonsNumber.push(<StyledButtons>B {i}</StyledButtons>);
   }
 
-  let axesNumber = [];
+  // AXES SECTION
 
+  let axesNumber = [];
   for (let i = 0; i < axes; i++) {
     let axesValue = navigator?.getGamepads()[0]?.axes;
+
+    // STYLE FOR AXES
+    const StyledAxes = styled.div`
+      background-color: ${Theme.BasicColors.white};
+      color: ${Theme.BasicColors.darkturquoise};
+      padding: 10px;
+      margin: 5px;
+      border-radius: 10px;
+      width: 70px;
+    `;
     axesNumber.push(
-      <StyledAxesInfo>
-        <div>
-          Axis {i}:{" "}
-          {Math.abs(axesValue![i]).toFixed(3).toString().substring(0, 5)}
-        </div>
-      </StyledAxesInfo>
+      <StyledAxes>
+        Axis {i}:{" "}
+        {Math.abs(axesValue![i]).toFixed(3).toString().substring(0, 5)}
+      </StyledAxes>
     );
   }
+
+  // RENDER SECTION
 
   if (buttons === 0) {
     return (
-      <>
-        <GamepadInfoWrapper>
-          {axesNumber}
-          {buttonsNumber}
-          <StyledNotConnectedInfo>
-            Please connect you gamepad via USB or BT and push any button.
-            <StyledLoader />
-          </StyledNotConnectedInfo>
-        </GamepadInfoWrapper>
+      <NotConnectedWrapper>
+        Please connect you gamepad via USB or BT and push any button.
         <GamepadAPI />
-      </>
+      </NotConnectedWrapper>
     );
   } else {
     return (
-      <>
-        <GamepadInfoWrapper>
-          {axesNumber}
-          {buttonsNumber}
-          <div>{<AxesSVG />}</div>
+      <ConnectedWrapper>
+        <AxesAndButtonsWrapper>
+          <AxesWrapper>{axesNumber}</AxesWrapper>
+          <ButtonsWrapper>{buttonsNumber}</ButtonsWrapper>
+        </AxesAndButtonsWrapper>
+        <SvgWrapper>
+          <AxesSVG />
+          <GamepadName>{navigator?.getGamepads()[0]?.id}</GamepadName>
           <GamepadTester />
-        </GamepadInfoWrapper>
+        </SvgWrapper>
         <GamepadAPI />
-      </>
+      </ConnectedWrapper>
     );
   }
 }
-
-const GamepadInfoWrapper = styled.div`
-  background-color: #f1e7e7;
-  border-radius: 5px 5px 0 0;
-  padding: 20px 40px;
-  position: relative;
-  /* 
-    @media (min-width: 425px) {
-      width: 400px;
-      margin: 2px auto;
-    }
-    @media (min-width: 768px) {
-      width: 600px;
-    } */
-`;
-
-const StyledNotConnectedInfo = styled.h1``;
-
-const StyledLoader = styled.div`
-  border: 16px solid ${Theme.BasicColors.white};
-  border-top: 16px solid ${Theme.BasicColors.darkturquoise};
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-`;
-
-const StyledAxesInfo = styled.div`
-  display: inline-block;
-  padding-right: 15px;
-  width: 100px;
-`;
