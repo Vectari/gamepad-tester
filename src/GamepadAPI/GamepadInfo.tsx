@@ -29,6 +29,7 @@ import {
   atomYPressed,
   atomButtons,
   atomAxes,
+  GamepadAPI,
 } from "./GamepadAPI";
 import { AxesSVG } from "@/SVG/AxesSVG";
 import { Theme } from "@/app/Theme";
@@ -98,6 +99,11 @@ export function GamepadInfo() {
     }
   `;
 
+  const StyledAxesInfo = styled.div`
+    display: flex;
+    justify-content: space-between;
+  `;
+
   const StyledButtons = styled.div`
     background-color: silver;
     padding: 5px;
@@ -120,7 +126,7 @@ export function GamepadInfo() {
     let bValue = navigator?.getGamepads()[0]?.buttons[i].value;
     buttonsNumber.push(
       <StyledButtons>
-        B{i}:{" "}
+        B {i}:{" "}
         {
           <StyledSVG>
             <svg width="10px" height={bValue! * 20}>
@@ -141,9 +147,11 @@ export function GamepadInfo() {
   for (let i = 0; i < axes; i++) {
     let aValue = navigator?.getGamepads()[0]?.axes;
     axesNumber.push(
-      <div>
-        Axes{i}: {aValue![i].toString().substring(0, 6)}
-      </div>
+      <StyledAxesInfo>
+        <div>
+          Axis {i}: {Math.abs(aValue![i]).toFixed(3).toString().substring(0, 5)}
+        </div>
+      </StyledAxesInfo>
     );
   }
 
@@ -151,27 +159,25 @@ export function GamepadInfo() {
     return (
       <>
         <GamepadInfoWrapper>
-          {/* {buttons} */}
           {axesNumber}
           {buttonsNumber}
           <StyledNotConnectedInfo>
             Please connect you gamepad via USB or BT and push any button.
-            <StyledLoader></StyledLoader>
+            <StyledLoader />
           </StyledNotConnectedInfo>
         </GamepadInfoWrapper>
+        <GamepadAPI />
       </>
     );
   } else {
     return (
       <>
         <GamepadInfoWrapper>
-          {/* {buttons} */}
           {axesNumber}
           {buttonsNumber}
-          <div>
-          {<AxesSVG />}</div>
-          {/* <GamepadTester /> */}
+          <div>{<AxesSVG />}</div>
         </GamepadInfoWrapper>
+        <GamepadAPI />
       </>
     );
   }
