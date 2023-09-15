@@ -3,11 +3,14 @@
 import { Theme } from "@/app/Theme";
 import { styled } from "styled-components";
 
-// const NavBarWrapper = styled.nav`
-//   background-color: ${Theme.BasicColors.bunker};
-//   padding: 5px;
-//   border-radius: 0 0 10px 10px;
-// `;
+const NavBarWrapper = styled.nav`
+  background-color: ${Theme.BasicColors.bunker};
+  padding: 30px;
+  color: ${Theme.BasicColors.darkturquoise};
+  font-size: 30px;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 10px;
+`;
 
 // const ButtonWrapper = styled.div`
 //   display: flex;
@@ -43,15 +46,15 @@ import { styled } from "styled-components";
 export default function NavBar() {
   return (
     <>
-      {/* <NavBarWrapper>
-        <StyledLink href="/">Gamepad Tester</StyledLink>
+      <NavBarWrapper>
+        NavBar
+        {/* <StyledLink href="/">Gamepad Tester</StyledLink>
         <ButtonWrapper>
             <StyledButtonLink href="/about">About</StyledButtonLink>
             <StyledButtonLink href="/fixinginfo">Fixing Info</StyledButtonLink>
             <StyledButtonLink href="/info">Info</StyledButtonLink>
-        </ButtonWrapper>
-      </NavBarWrapper> */}
-      NavBar
+        </ButtonWrapper> */}
+      </NavBarWrapper>
     </>
   );
 }
