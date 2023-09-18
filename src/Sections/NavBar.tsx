@@ -4,9 +4,9 @@ import { Theme } from "@/app/Theme";
 import { styled } from "styled-components";
 
 const NavBarWrapper = styled.nav`
-  background-color: ${Theme.BasicColors.bunker};
+  background-color: ${Theme.BasicColors.navbar};
   padding: 30px;
-  color: ${Theme.BasicColors.darkturquoise};
+  color: ${Theme.BasicColors.title};
   font-size: 30px;
   border-radius: 0 0 10px 10px;
   margin-bottom: 10px;

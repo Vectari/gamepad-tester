@@ -38,7 +38,7 @@ import GamepadTester from "@/Sections/GamepadTester";
 // STYLES SECTION
 
 const NotConnectedWrapper = styled.div`
-  background-color: ${Theme.BasicColors.lightgrey};
+  background-color: ${Theme.BasicColors.panelBackground};
   padding: 30px;
   text-align: center;
   font-size: 30px;
@@ -47,7 +47,7 @@ const NotConnectedWrapper = styled.div`
 `;
 
 const ConnectedWrapper = styled.div`
-  background-color: ${Theme.BasicColors.lightgrey};
+  background-color: ${Theme.BasicColors.panelBackground};
   padding: 30px;
   border-radius: 10px;
 
@@ -77,7 +77,7 @@ const SvgWrapper = styled.div`
 
 const GamepadName = styled.p`
   background-color: ${Theme.BasicColors.white};
-  color: ${Theme.BasicColors.darkturquoise};
+  color: ${Theme.BasicColors.black};
   margin: 15px 0;
   padding: 5px;
   border-radius: 10px;
@@ -124,7 +124,10 @@ export function GamepadInfo() {
       background-color: ${buttonsValue! > 0
         ? `rgba(0,0,0,${buttonsValue})`
         : `${Theme.BasicColors.white}`};
-      color: ${Theme.BasicColors.darkturquoise};
+      /* color: ${Theme.BasicColors.black}; */
+      color: ${buttonsValue! > 0.4
+        ? `${Theme.BasicColors.white}`
+        : `rgba(0,0,0)`};
       padding: 10px;
       margin: 5px;
       border-radius: 10px;
@@ -142,7 +145,7 @@ export function GamepadInfo() {
     // STYLE FOR AXES
     const StyledAxes = styled.div`
       background-color: ${Theme.BasicColors.white};
-      color: ${Theme.BasicColors.darkturquoise};
+      color: ${Theme.BasicColors.black};
       padding: 10px;
       margin: 5px;
       border-radius: 10px;

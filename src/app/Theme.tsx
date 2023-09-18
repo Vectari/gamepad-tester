@@ -1,11 +1,10 @@
 export const Theme = {
   BasicColors: {
     white: "#FFF",
-    black: "#0B0C10",
-    bunker: "#1F2833",
-    lightgrey: "#C5C6C7",
-    turquoise: "#66FCF1",
-    darkturquoise: "#45A29E",
+    black: "#000",
+    title: "#D96C06",
+    navbar: "#2D2D2A",
+    panelBackground: "#dfdbdccc",
   },
   SVGColors: {
     black: "#000",
