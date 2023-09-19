@@ -34,6 +34,8 @@ import {
 import { AxesSVG } from "@/SVG/AxesSVG";
 import { Theme } from "@/app/Theme";
 import GamepadTester from "@/Sections/GamepadTester";
+import { css } from "styled-components";
+import { useState } from "react";
 
 // STYLES SECTION
 
@@ -141,6 +143,10 @@ export function GamepadInfo() {
   let axesNumber = [];
   for (let i = 0; i < axes; i++) {
     let axesValue = navigator?.getGamepads()[0]?.axes;
+    let renderedAxesValue = Math.abs(axesValue![i])
+      .toFixed(3)
+      .toString()
+      .substring(0, 5);
 
     // STYLE FOR AXES
     const StyledAxes = styled.div`
@@ -151,13 +157,24 @@ export function GamepadInfo() {
       border-radius: 10px;
       width: 70px;
     `;
+
     axesNumber.push(
       <StyledAxes>
-        Axis {i}:{" "}
-        {Math.abs(axesValue![i]).toFixed(3).toString().substring(0, 5)}
+        Axis {i}: {renderedAxesValue}
+        {/* {Math.abs(axesValue![i]) >= 0.15 ? <div className="error">error</div> : <div className="ok">ok</div>} */}
       </StyledAxes>
     );
   }
+
+  // HISTORY SECTION
+
+  // let historyButtons = [];
+
+  // for (let i = 0; i < buttons; i++) {
+  //   let buttonsValue = navigator?.getGamepads()[0]?.buttons[i].value;
+  //   if (navigator?.getGamepads()[0]?.buttons[i].value === 1)
+  //   historyButtons.push(<div>B {i}</div>);
+  // };
 
   // RENDER SECTION
 
