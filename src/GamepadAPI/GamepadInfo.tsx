@@ -138,6 +138,7 @@ export function GamepadInfo() {
     buttonsNumber.push(<StyledButtons>B {i}</StyledButtons>);
   }
 
+  
   // AXES SECTION
 
   let axesNumber = [];
