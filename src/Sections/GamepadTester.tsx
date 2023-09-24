@@ -23,8 +23,9 @@ export default function GamepadTester() {
   const [buttons] = useAtom(atomButtons);
 
   if (
-    buttons === 17 &&
-    gamepadName === "Xbox 360 Controller (XInput STANDARD GAMEPAD)"
+    buttons === 17
+    //  &&
+    // gamepadName === "Xbox 360 Controller (XInput STANDARD GAMEPAD)"
   ) {
     return (
       <StyledDiv>
