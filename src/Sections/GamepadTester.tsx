@@ -14,7 +14,7 @@ import {
 import { useAtom } from "jotai/react";
 
 const StyledDiv = styled.div`
-//SOMETHING HERE TO NOT MAKE BIGGER GAMEPADINFO SECTION AFTER RENDER
+  //SOMETHING HERE TO NOT MAKE BIGGER GAMEPADINFO SECTION AFTER RENDER
 `;
 
 export default function GamepadTester() {
@@ -22,10 +22,7 @@ export default function GamepadTester() {
   const [connectionStatus] = useAtom(atomConnectionStatus);
   const [buttons] = useAtom(atomButtons);
 
-  if (
-    buttons === 17 &&
-    gamepadName === "Xbox 360 Controller (XInput STANDARD GAMEPAD)"
-  ) {
+  if (buttons === 17) {
     return (
       <StyledDiv>
         <XboxSVG />
