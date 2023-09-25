@@ -63,13 +63,13 @@ const AxesAndButtonsWrapper = styled.div``;
 const AxesWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 5px;
 `;
 
 const ButtonsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  gap: 15px;
   margin: 70px 0 0 10px;
 `;
 
