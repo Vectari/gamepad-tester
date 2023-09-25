@@ -47,7 +47,7 @@ export default function NavBar() {
   return (
     <>
       <NavBarWrapper>
-        NavBar
+        Gamepad Tester
         {/* <StyledLink href="/">Gamepad Tester</StyledLink>
         <ButtonWrapper>
             <StyledButtonLink href="/about">About</StyledButtonLink>
